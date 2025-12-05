@@ -44,6 +44,7 @@ const SkillIcon = ({ skill }) => {
     "Next.js",
     "TailwindCSS",
     "Rust",
+    "MkDocs",
   ];
 
   const shouldInvert = needsInvert.includes(skill.name);
@@ -113,6 +114,7 @@ const skills = [
   { name: "JWT Authentication", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/jsonwebtokens.svg", category: "tools" },
   { name: "Alchemy", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/alchemy.svg", category: "tools" },
   { name: "Chainlink VRF", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/chainlink.svg", category: "tools" },
+  { name: "MkDocs", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/mkdocs.svg", category: "tools" },
 ];
 
 const categories = ["all", "programming", "frontend", "backend", "databases", "tools"];
@@ -138,13 +140,13 @@ export const SkillsSection = () => {
               key={key}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300",
+                "px-5 py-2 rounded-full transition-all duration-300",
                 activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-forefround hover:bd-secondary"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50 scale-105"
+                  : "bg-secondary/70 text-foreground hover:bg-secondary hover:scale-105 hover:shadow-md hover:text-primary"
               )}
             >
-              {category === "all" ? "All" : category === "programming" ? "Programming Languages" : category === "frontend" ? "Frontend" : category === "backend" ? "Backend" : category === "databases" ? "Databases" : "Tools & Technologies"}
+              {category === "all" ? "All" : category === "programming" ? "Programming Languages" : category === "frontend" ? "Frontend" : category === "backend" ? "Backend" : category === "databases" ? "Databases" : "Tools"}
             </button>
           ))}
         </div>

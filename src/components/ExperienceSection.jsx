@@ -1,5 +1,5 @@
-import { Briefcase, Calendar, Building2, TrendingUp } from "lucide-react";
-import { useState } from "react";
+import { Briefcase, Calendar, Building2, TrendingUp, Users, Code } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const CompanyLogo = ({ logo, company, fillCircle = false }) => {
   const [imageError, setImageError] = useState(false);
@@ -20,12 +20,73 @@ const CompanyLogo = ({ logo, company, fillCircle = false }) => {
   );
 };
 
+const useDarkMode = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+
+    checkTheme();
+
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return isDark;
+};
+
+const techIcons = {
+  "ReactJs": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "MUI": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/materialui.svg",
+  "Bootstrap": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+  "TailwindCSS": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tailwindcss.svg",
+  "Springboot": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+  "Cassandra": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cassandra/cassandra-original.svg",
+  "Redis": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+  "Kafka": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/apachekafka.svg",
+  "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  "ArangoDB": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/arangodb.svg",
+  "MkDocs": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/mkdocs.svg",
+};
+
+const TechStackItem = ({ tech }) => {
+  const [imageError, setImageError] = useState(false);
+  const isDark = useDarkMode();
+  
+  const iconUrl = techIcons[tech];
+  const needsInvert = ["Kafka", "TailwindCSS", "ArangoDB", "MkDocs"];
+  const shouldInvert = needsInvert.includes(tech) && isDark;
+
+  return (
+    <span className="inline-flex items-center gap-1.5 text-xs bg-primary/10 text-primary px-2 py-1 rounded-md">
+      {iconUrl && !imageError ? (
+        <img
+          src={iconUrl}
+          alt={tech}
+          className={`w-3.5 h-3.5 object-contain ${shouldInvert ? "brightness-0 invert" : ""}`}
+          onError={() => setImageError(true)}
+        />
+      ) : null}
+      <span>{tech}</span>
+    </span>
+  );
+};
+
 const experiences = [
   {
     title: "Senior Associate Developer",
-    company: "NPCI",
+    company: "National Payments Corporation of India",
+    team: "UPI Team",
     period: "Sep 2024 – Present",
     logo: "/companies/npci_logo.png",
+    techStack: ["ReactJs", "MUI", "Bootstrap", "TailwindCSS", "Springboot", "Cassandra", "Redis", "Kafka"],
     achievements: [
       "Built a chatbot-based Bank/PSP onboarding platform using ReactJS + Spring Boot + JWT auth, reducing operational effort by 40% and processing time by 30%.",
       "Migrated the UPI Portal for 650+ banks from JSP to a modern ReactJS frontend, improving UI responsiveness by 50%.",
@@ -36,9 +97,11 @@ const experiences = [
   {
     title: "Software Developer Intern",
     company: "Jio Platforms Ltd",
+    team: "AICOE Knowledge Graph Team",
     period: "May 2023 – Jul 2023",
     logo: "/companies/jio.png",
     fillCircle: true,
+    techStack: ["Python", "ArangoDB", "MkDocs"],
     achievements: [
       "Integrated 2.5M+ instances into the Knowledge Graph using gRPC ingestion pipelines with ArangoDB datasets.",
       "Created complete documentation for the Knowledge Repository Service using MkDocs, improving internal API adoption by 30%.",
@@ -87,12 +150,18 @@ export const ExperienceSection = () => {
                         <h3 className="text-xl md:text-2xl font-bold mb-1 text-left">
                           {exp.title}
                         </h3>
-                        <div className="flex items-center gap-2 text-primary font-semibold mb-2">
-                          <Briefcase className="h-4 w-4" />
-                          <span>{exp.company}</span>
+                        <div className="flex items-center gap-2 text-primary font-semibold mb-1 text-left">
+                          <Briefcase className="h-4 w-4 flex-shrink-0" />
+                          <span className="text-left whitespace-nowrap">{exp.company}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                          <Calendar className="h-4 w-4" />
+                        {exp.team && (
+                          <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1 text-left">
+                            <Users className="h-4 w-4 flex-shrink-0" />
+                            <span>{exp.team}</span>
+                          </div>
+                        )}
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
+                          <Calendar className="h-4 w-4 flex-shrink-0" />
                           <span>{exp.period}</span>
                         </div>
                       </div>
@@ -113,6 +182,18 @@ export const ExperienceSection = () => {
                           </p>
                         </div>
                       ))}
+                      {exp.techStack && (
+                        <div className="flex items-start gap-3 text-left">
+                          <div className="mt-1.5 flex-shrink-0">
+                            <Code className="h-4 w-4 text-primary" />
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.techStack.map((tech, idx) => (
+                              <TechStackItem key={idx} tech={tech} />
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
