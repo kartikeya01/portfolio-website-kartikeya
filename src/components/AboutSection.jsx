@@ -5,12 +5,13 @@ export const AboutSection = () => {
     <section id="about" className="py-24 px-4 relative">
       {" "}
       <div className="container mx-auto max-w-5xl">
+        <div className="gradient-border p-8 md:p-12 bg-card/30 backdrop-blur-sm rounded-lg">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           About <span className="text-primary"> Me</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+          <div className="bg-card p-6 md:p-8 rounded-lg shadow-lg border border-border/50 space-y-6">
             <h3 className="text-2xl font-semibold">
               Passionate Web Developer & Tech Creator
             </h3>
@@ -88,6 +89,7 @@ export const AboutSection = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

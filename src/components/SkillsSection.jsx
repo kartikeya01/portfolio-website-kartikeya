@@ -33,12 +33,14 @@ export const SkillsSection = () => {
     (skill) => activeCategory === "all" || skill.category === activeCategory
   );
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+    <section id="skills" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
-        </h2>
+        <div className="gradient-border p-8 md:p-12 bg-card/30 backdrop-blur-sm rounded-lg">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            My <span className="text-primary"> Skills</span>
+          </h2>
 
+          <div className="bg-card p-6 md:p-8 rounded-lg shadow-lg border border-border/50">
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category, key) => (
             <button
@@ -79,6 +81,8 @@ export const SkillsSection = () => {
               </div>
             </div>
           ))}
+        </div>
+          </div>
         </div>
       </div>
     </section>

@@ -7,7 +7,8 @@ export const HeroSection = () => {
       className="relative min-h-screen flex flex-col items-center justify-center px-4"
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
-        <div className="space-y-6">
+        <div className="gradient-border p-8 md:p-12 bg-card/30 backdrop-blur-sm rounded-lg">
+          <div className="bg-card p-8 md:p-10 rounded-lg shadow-lg border border-border/50 space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1">
@@ -31,6 +32,7 @@ export const HeroSection = () => {
               View My Work
             </a>
           </div>
+        </div>
         </div>
       </div>
 
