@@ -1,10 +1,31 @@
 import { Briefcase, Calendar, Building2, TrendingUp } from "lucide-react";
+import { useState } from "react";
+
+const CompanyLogo = ({ logo, company, fillCircle = false }) => {
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div className={`${fillCircle ? "p-0" : "p-3"} rounded-full ${fillCircle ? "" : "bg-primary/10"} flex-shrink-0 flex items-center justify-center ${fillCircle ? "h-14 w-14" : ""}`}>
+      {logo && !imageError ? (
+        <img
+          src={logo}
+          alt={`${company} logo`}
+          className={fillCircle ? "h-full w-full rounded-full object-cover" : "h-8 w-8 object-contain"}
+          onError={() => setImageError(true)}
+        />
+      ) : (
+        <Building2 className="h-6 w-6 text-primary" />
+      )}
+    </div>
+  );
+};
 
 const experiences = [
   {
     title: "Senior Associate Developer",
     company: "NPCI",
     period: "Sep 2024 – Present",
+    logo: "/companies/npci_logo.png",
     achievements: [
       "Built a chatbot-based Bank/PSP onboarding platform using ReactJS + Spring Boot + JWT auth, reducing operational effort by 40% and processing time by 30%.",
       "Migrated the UPI Portal for 650+ banks from JSP to a modern ReactJS frontend, improving UI responsiveness by 50%.",
@@ -16,6 +37,8 @@ const experiences = [
     title: "Software Developer Intern",
     company: "Jio Platforms Ltd",
     period: "May 2023 – Jul 2023",
+    logo: "/companies/jio.png",
+    fillCircle: true,
     achievements: [
       "Integrated 2.5M+ instances into the Knowledge Graph using gRPC ingestion pipelines with ArangoDB datasets.",
       "Created complete documentation for the Knowledge Repository Service using MkDocs, improving internal API adoption by 30%.",
@@ -59,11 +82,9 @@ export const ExperienceSection = () => {
                   <div className="gradient-border p-6 md:p-8 card-hover bg-card/50 backdrop-blur-sm">
                     {/* Header */}
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="p-3 rounded-full bg-primary/10 flex-shrink-0">
-                        <Building2 className="h-6 w-6 text-primary" />
-                      </div>
+                      <CompanyLogo logo={exp.logo} company={exp.company} fillCircle={exp.fillCircle} />
                       <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-bold mb-1">
+                        <h3 className="text-xl md:text-2xl font-bold mb-1 text-left">
                           {exp.title}
                         </h3>
                         <div className="flex items-center gap-2 text-primary font-semibold mb-2">
