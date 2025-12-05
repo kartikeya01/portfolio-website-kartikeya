@@ -1,30 +1,73 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
+const SkillIcon = ({ skill }) => {
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-3 group cursor-pointer">
+      <div className="w-16 h-16 flex items-center justify-center p-3 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50 group-hover:border-primary/50 transition-all duration-300">
+        {!imageError ? (
+          <img
+            src={skill.icon}
+            alt={skill.name}
+            className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+            loading="lazy"
+            onError={() => setImageError(true)}
+          />
+        ) : (
+          <div className="text-2xl font-bold text-primary">
+            {skill.name.charAt(0)}
+          </div>
+        )}
+      </div>
+      <span className="text-sm text-foreground/80 text-center font-medium group-hover:text-primary transition-colors duration-300">
+        {skill.name}
+      </span>
+    </div>
+  );
+};
+
 const skills = [
+  // Programming Languages
+  { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg", category: "programming" },
+  { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", category: "programming" },
+  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/javascript.svg", category: "programming" },
+  { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", category: "programming" },
+  { name: "Rust", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/rust.svg", category: "programming" },
+
   // Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "React", level: 90, category: "frontend" },
-  { name: "TypeScript", level: 85, category: "frontend" },
-  { name: "Tailwind CSS", level: 90, category: "frontend" },
-  { name: "Next.js", level: 80, category: "frontend" },
+  { name: "ReactJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", category: "frontend" },
+  { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/nextdotjs.svg", category: "frontend" },
+  { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tailwindcss.svg", category: "frontend" },
+  { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg", category: "frontend" },
 
   // Backend
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express", level: 75, category: "backend" },
-  { name: "MongoDB", level: 70, category: "backend" },
-  { name: "PostgreSQL", level: 65, category: "backend" },
-  { name: "GraphQL", level: 60, category: "backend" },
+  { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", category: "backend" },
+  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", category: "backend" },
+  { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg", category: "backend" },
 
-  // Tools
-  { name: "Git/GitHub", level: 90, category: "tools" },
-  { name: "Docker", level: 70, category: "tools" },
-  { name: "Figma", level: 85, category: "tools" },
-  { name: "VS Code", level: 95, category: "tools" },
+  // Databases
+  { name: "Apache Cassandra", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cassandra/cassandra-original.svg", category: "databases" },
+  { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", category: "databases" },
+  { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg", category: "databases" },
+  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", category: "databases" },
+  { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", category: "databases" },
+  { name: "ArangoDB", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/arangodb.svg", category: "databases" },
+
+  // Tools & Technologies
+  { name: "Kafka", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg", category: "tools" },
+  { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", category: "tools" },
+  { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", category: "tools" },
+  { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", category: "tools" },
+  { name: "gRPC", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/grpc.svg", category: "tools" },
+  { name: "JWT Authentication", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/jsonwebtokens.svg", category: "tools" },
+  { name: "Alchemy", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/alchemy.svg", category: "tools" },
+  { name: "Chainlink VRF", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/chainlink.svg", category: "tools" },
+  { name: "Solidity", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg", category: "tools" },
 ];
 
-const categories = ["all", "frontend", "backend", "tools"];
+const categories = ["all", "programming", "frontend", "backend", "databases", "tools"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -47,39 +90,20 @@ export const SkillsSection = () => {
               key={key}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                "px-5 py-2 rounded-full transition-colors duration-300",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary/70 text-forefround hover:bd-secondary"
               )}
             >
-              {category}
+              {category === "all" ? "All" : category === "programming" ? "Programming Languages" : category === "frontend" ? "Frontend" : category === "backend" ? "Backend" : category === "databases" ? "Databases" : "Tools & Technologies"}
             </button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8">
           {filteredSkills.map((skill, key) => (
-            <div
-              key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
-            >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg"> {skill.name}</h3>
-              </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
-              </div>
-            </div>
+            <SkillIcon key={key} skill={skill} />
           ))}
         </div>
           </div>
