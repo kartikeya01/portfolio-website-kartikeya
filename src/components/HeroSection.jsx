@@ -101,9 +101,17 @@ export const HeroSection = () => {
               publish research and technical articles.
             </p>
 
-            <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-              <a href="#projects" className="cosmic-button">
-                View My Work
+            <div className="pt-4 opacity-0 animate-fade-in-delay-4 flex gap-4 flex-wrap">
+              <a href="#experience" className="cosmic-button">
+                View my Work Experience
+              </a>
+              <a
+                href="https://drive.google.com/file/d/150ktmraj7xpIcM5G8CpHJvDv0V6pzswB/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cosmic-button"
+              >
+                Resume
               </a>
             </div>
           </div>

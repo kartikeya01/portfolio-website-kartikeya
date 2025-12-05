@@ -65,7 +65,7 @@ const SkillIcon = ({ skill }) => {
           />
         ) : (
           <div className="text-2xl font-bold text-primary">
-            {skill.name.charAt(0)}
+            {skill.name === "MkDocs" ? "Mk" : skill.name.charAt(0)}
           </div>
         )}
       </div>
@@ -82,7 +82,7 @@ const skills = [
   { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", category: "programming" },
   { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", category: "programming" },
   { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", category: "programming" },
-  { name: "Rust", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/rust.svg", category: "programming" },
+  { name: "Rust", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/rust.svg", category: "programming" },
   { name: "Solidity", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg", category: "programming" },
 
   // Frontend
@@ -90,7 +90,7 @@ const skills = [
   { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/nextdotjs.svg", category: "frontend" },
   { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tailwindcss.svg", category: "frontend" },
   { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg", category: "frontend" },
-  { name: "Material UI", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/materialui.svg", category: "frontend" },
+  { name: "Material UI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg", category: "frontend" },
 
   // Backend
   { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", category: "backend" },
