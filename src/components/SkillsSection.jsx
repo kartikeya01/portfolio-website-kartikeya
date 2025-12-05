@@ -1,8 +1,52 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+
+const useDarkMode = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+
+    // Check initial theme
+    checkTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return isDark;
+};
 
 const SkillIcon = ({ skill }) => {
   const [imageError, setImageError] = useState(false);
+  const isDark = useDarkMode();
+
+  // Logos that need special handling in dark mode
+  const needsInvert = [
+    "Kafka",
+    "Git",
+    "GitHub",
+    "gRPC",
+    "JWT Authentication",
+    "Alchemy",
+    "Chainlink VRF",
+    "Solidity",
+    "ArangoDB",
+    "Express",
+    "Next.js",
+    "TailwindCSS",
+    "Rust",
+  ];
+
+  const shouldInvert = needsInvert.includes(skill.name);
 
   return (
     <div className="flex flex-col items-center justify-center gap-3 group cursor-pointer">
@@ -11,7 +55,10 @@ const SkillIcon = ({ skill }) => {
           <img
             src={skill.icon}
             alt={skill.name}
-            className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+            className={cn(
+              "w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-300",
+              isDark && shouldInvert && "brightness-0 invert"
+            )}
             loading="lazy"
             onError={() => setImageError(true)}
           />
@@ -32,15 +79,17 @@ const skills = [
   // Programming Languages
   { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg", category: "programming" },
   { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", category: "programming" },
-  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/javascript.svg", category: "programming" },
+  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", category: "programming" },
   { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", category: "programming" },
   { name: "Rust", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/rust.svg", category: "programming" },
+  { name: "Solidity", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg", category: "programming" },
 
   // Frontend
   { name: "ReactJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", category: "frontend" },
   { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/nextdotjs.svg", category: "frontend" },
   { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tailwindcss.svg", category: "frontend" },
   { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg", category: "frontend" },
+  { name: "Material UI", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/materialui.svg", category: "frontend" },
 
   // Backend
   { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", category: "backend" },
@@ -64,7 +113,6 @@ const skills = [
   { name: "JWT Authentication", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/jsonwebtokens.svg", category: "tools" },
   { name: "Alchemy", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/alchemy.svg", category: "tools" },
   { name: "Chainlink VRF", icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/chainlink.svg", category: "tools" },
-  { name: "Solidity", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg", category: "tools" },
 ];
 
 const categories = ["all", "programming", "frontend", "backend", "databases", "tools"];
@@ -77,14 +125,14 @@ export const SkillsSection = () => {
   );
   return (
     <section id="skills" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-7xl">
         <div className="gradient-border p-8 md:p-12 bg-card/30 backdrop-blur-sm rounded-lg">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             My <span className="text-primary"> Skills</span>
           </h2>
 
           <div className="bg-card p-6 md:p-8 rounded-lg shadow-lg border border-border/50">
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap md:flex-nowrap justify-center gap-3 md:gap-4 mb-12">
           {categories.map((category, key) => (
             <button
               key={key}
