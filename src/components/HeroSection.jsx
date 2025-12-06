@@ -43,22 +43,25 @@ const TypingEffect = ({ fullText, speed = 100, repeatDelay = 3500 }) => {
 
   // Parse the text to apply styling
   const renderText = () => {
-    const parts = displayedText.split(/(Kartikeya|Ranjan)/);
-    return parts.map((part, index) => {
-      if (part === "Kartikeya") {
+    // Find positions of "Kartikeya" and "Ranjan" in the full text
+    const kartikeyaStart = fullText.indexOf("Kartikeya");
+    const kartikeyaEnd = kartikeyaStart + "Kartikeya".length;
+    const ranjanStart = fullText.indexOf("Ranjan");
+    const ranjanEnd = ranjanStart + "Ranjan".length;
+
+    // Render character by character to apply color during typing
+    return displayedText.split("").map((char, index) => {
+      const isKartikeya = index >= kartikeyaStart && index < kartikeyaEnd;
+      const isRanjan = index >= ranjanStart && index < ranjanEnd;
+
+      if (isKartikeya || isRanjan) {
         return (
           <span key={index} className="text-primary">
-            {part}
-          </span>
-        );
-      } else if (part === "Ranjan") {
-        return (
-          <span key={index} className="text-gradient">
-            {part}
+            {char}
           </span>
         );
       }
-      return <span key={index}>{part}</span>;
+      return <span key={index}>{char}</span>;
     });
   };
 
@@ -86,7 +89,7 @@ export const HeroSection = () => {
           <div className="flex-1 text-left space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
               <TypingEffect
-                fullText="Hi, I'm Kartikeya Ranjan"
+                fullText="Hi there! I am Kartikeya Ranjan"
                 speed={50}
                 repeatDelay={2000}
               />
