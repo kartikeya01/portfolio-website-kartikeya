@@ -1,11 +1,34 @@
 import { useEffect, useState } from "react";
 
+const useDarkMode = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+
+    checkTheme();
+
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return isDark;
+};
+
 // id, size, x, y, opacity, animationDuration
 // id, size, x, y, delay, animationDuration
 
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
+  const isDark = useDarkMode();
 
   useEffect(() => {
     generateStars();
@@ -64,7 +87,7 @@ export const StarBackground = () => {
       {stars.map((star) => (
         <div
           key={star.id}
-          className="star animate-pulse-subtle"
+          className={`absolute rounded-full animate-pulse-subtle ${isDark ? 'bg-white' : 'bg-black'}`}
           style={{
             width: star.size + "px",
             height: star.size + "px",
@@ -72,6 +95,9 @@ export const StarBackground = () => {
             top: star.y + "%",
             opacity: star.opacity,
             animationDuration: star.animationDuration + "s",
+            boxShadow: isDark 
+              ? '0 0 10px 2px rgba(255, 255, 255, 0.4)' 
+              : '0 0 10px 2px rgba(0, 0, 0, 0.4)',
           }}
         />
       ))}
@@ -79,7 +105,7 @@ export const StarBackground = () => {
       {meteors.map((meteor) => (
         <div
           key={meteor.id}
-          className="meteor animate-meteor"
+          className={`absolute rounded-full animate-meteor ${isDark ? 'bg-gradient-to-r from-white via-white to-transparent' : 'bg-gradient-to-r from-black via-black to-transparent'}`}
           style={{
             width: meteor.size * 50 + "px",
             height: meteor.size * 2 + "px",
@@ -87,6 +113,9 @@ export const StarBackground = () => {
             top: meteor.y + "%",
             animationDelay: meteor.delay,
             animationDuration: meteor.animationDuration + "s",
+            boxShadow: isDark 
+              ? '0 0 10px 5px rgba(255, 255, 255, 0.3)' 
+              : '0 0 10px 5px rgba(0, 0, 0, 0.3)',
           }}
         />
       ))}

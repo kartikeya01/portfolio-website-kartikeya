@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -19,7 +20,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -28,8 +29,10 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+        isScrolled
+          ? "py-3 bg-background/95 backdrop-blur-md shadow-lg"
+          : "py-5 bg-background/80 backdrop-blur-sm"
       )}
     >
       <div className="container flex items-center justify-between">
@@ -44,7 +47,7 @@ export const Navbar = () => {
         </a>
 
         {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, key) => (
             <a
               key={key}
@@ -54,6 +57,7 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
+          <ThemeToggle />
         </div>
 
         {/* mobile nav */}
@@ -86,6 +90,9 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
+            <div className="flex justify-center pt-4">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </div>
