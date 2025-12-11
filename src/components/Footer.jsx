@@ -1,4 +1,13 @@
-import { ArrowUp, Linkedin, Mail, Twitter, Github, Star, FileText, PenTool } from "lucide-react";
+import {
+  ArrowUp,
+  Linkedin,
+  Mail,
+  Twitter,
+  Github,
+  Star,
+  FileText,
+  PenTool,
+} from "lucide-react";
 
 const socialLinks = [
   {
@@ -36,11 +45,14 @@ export const Footer = () => {
           {/* Left side - Content */}
           <div className="flex-1 space-y-4 text-left">
             {/* Name */}
-            <h3 className="text-2xl md:text-3xl font-bold text-left">Kartikeya Ranjan</h3>
-            
+            <h3 className="text-2xl md:text-3xl font-bold text-left">
+              Kartikeya Ranjan
+            </h3>
+
             {/* Title/Description */}
             <p className="text-sm md:text-base text-muted-foreground text-left">
-              IT Analyst @NPCI | Ex-SDE Intern @JioPlatformsLimited | NITK IT'24
+              Senior Associate Developer @NPCI | Ex-SDE Intern
+              @JioPlatformsLimited | NITK IT'24
             </p>
 
             {/* Social Icons */}
@@ -51,8 +63,14 @@ export const Footer = () => {
                   <a
                     key={index}
                     href={social.href}
-                    target={social.href.startsWith("mailto:") ? "_self" : "_blank"}
-                    rel={social.href.startsWith("mailto:") ? "" : "noopener noreferrer"}
+                    target={
+                      social.href.startsWith("mailto:") ? "_self" : "_blank"
+                    }
+                    rel={
+                      social.href.startsWith("mailto:")
+                        ? ""
+                        : "noopener noreferrer"
+                    }
                     className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-all duration-300 hover:scale-110"
                     aria-label={social.name}
                   >
@@ -62,8 +80,9 @@ export const Footer = () => {
                           src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/medium.svg"
                           alt="Medium"
                           className="w-full h-full"
-                          style={{ 
-                            filter: 'brightness(0) saturate(100%) invert(58%) sepia(93%) saturate(1352%) hue-rotate(220deg) brightness(95%) contrast(90%)'
+                          style={{
+                            filter:
+                              "brightness(0) saturate(100%) invert(58%) sepia(93%) saturate(1352%) hue-rotate(220deg) brightness(95%) contrast(90%)",
                           }}
                         />
                       </div>
@@ -102,7 +121,7 @@ export const Footer = () => {
           <div className="flex-shrink-0">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-primary/50 overflow-hidden bg-card/50 backdrop-blur-sm">
               <img
-                src="/profile.jpg"
+                src="/profile/profile_2.png"
                 alt="Kartikeya Ranjan"
                 className="w-full h-full object-cover"
                 onError={(e) => {

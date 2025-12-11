@@ -1,4 +1,4 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const TypingEffect = ({ fullText, speed = 100, repeatDelay = 3500 }) => {
@@ -84,7 +84,7 @@ export const HeroSection = () => {
       className="relative min-h-screen flex items-center justify-center px-4 py-24"
     >
       <div className="container max-w-7xl mx-auto z-10">
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+        <div className="flex flex-col items-start">
           {/* Left side - Content */}
           <div className="flex-1 text-left space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
@@ -112,32 +112,11 @@ export const HeroSection = () => {
                 href="https://drive.google.com/file/d/150ktmraj7xpIcM5G8CpHJvDv0V6pzswB/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cosmic-button"
+                className="cosmic-button flex items-center gap-2"
               >
+                <Download size={18} />
                 Resume
               </a>
-            </div>
-          </div>
-
-          {/* Right side - Profile Picture */}
-          <div className="flex-shrink-0">
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-primary/50 overflow-hidden bg-card/50 backdrop-blur-sm">
-              {/* Placeholder for profile picture - replace with your image */}
-              <img
-                src="/profile.jpg"
-                alt="Profile"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.parentElement.classList.add(
-                    "flex",
-                    "items-center",
-                    "justify-center"
-                  );
-                  e.target.parentElement.innerHTML =
-                    '<div class="text-4xl font-bold text-primary">KR</div>';
-                }}
-              />
             </div>
           </div>
         </div>
