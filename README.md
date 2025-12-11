@@ -1,133 +1,123 @@
-# Build a Modern Portfolio Website with React & TailwindCSS
+# Kartikeya Ranjan - Portfolio Website
 
-<div align="center">
-  <br />
-  <a href="https://youtu.be/YOUR_VIDEO_ID" target="_blank">
-    <img src="./banner.png" alt="Portfolio Website Banner">
-  </a>
-  <br />
-  <div>
-    <img src="https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
-    <img src="https://img.shields.io/badge/-TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss" alt="Tailwind CSS" />
-    <img src="https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-    <img src="https://img.shields.io/badge/-Lucide Icons-FD4D4D?style=for-the-badge&logo=lucide" alt="Lucide Icons" />
-    <img src="https://img.shields.io/badge/-Radix UI-9D4EDD?style=for-the-badge&logo=data:image/svg+xml;base64..." alt="Radix UI" />
-  </div>
-  <h3 align="center">Create a Stunning Developer Portfolio with Animations, Dark Mode, and Projects Showcase</h3>
-  <div align="center">
-    Follow the full video tutorial on 
-    <a href="https://youtu.be/YOUR_VIDEO_ID" target="_blank"><b>YouTube</b></a>
-  </div>
-  <br />
-</div>
+A modern, responsive portfolio website showcasing my work, skills, and experience as a Full-Stack Developer.
 
-## 📋 Table of Contents
+## 📝 Description
 
-1. [Introduction](#-introduction)
-2. [Tech Stack](#-tech-stack)
-3. [Features](#-features)
-4. [Quick Start](#-quick-start)
-5. [Screenshots](#-screenshots)
-6. [Deployment](#-deployment)
+This portfolio website is a comprehensive showcase of my professional journey, featuring:
 
----
+- **About Me**: Introduction to my background and expertise in full-stack development
+- **Work Experience**: Detailed timeline of my professional roles at NPCI and Jio Platforms
+- **Education**: Academic journey from NITK to high school
+- **Skills**: Interactive skills section with categorized tech stack (Programming Languages, Frontend, Backend, Databases, Tools)
+- **Projects**: Showcase of my development projects
+- **Publications**: IEEE research paper and technical articles
+- **Contact**: Easy ways to get in touch
 
-## 🚀 Introduction
+The website features a beautiful dark/light mode toggle, smooth animations, and a fully responsive design that works seamlessly across all devices.
 
-In this tutorial, you'll learn how to build a modern portfolio website using **React**, **TailwindCSS**, **Vite**, and **Lucide Icons**. From dark mode support to responsive animations and deployable project showcases, this video walks you through every step—perfect for developers looking to level up their frontend skills or apply for jobs.
+## 🛠️ Tech Stack
 
-🎥 Watch the full tutorial: [YouTube](https://youtu.be/YOUR_VIDEO_ID)
+### Frontend
+- **React 18** - Modern UI library for building interactive user interfaces
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS 4** - Utility-first CSS framework for rapid UI development
+- **Lucide React** - Beautiful, customizable icon library
 
----
+### Styling & UI
+- **Tailwind CSS** - For responsive design and utility-first styling
+- **Custom CSS** - For animations, gradients, and special effects
+- **Glassmorphism** - Modern UI design with backdrop blur effects
 
-## ⚙️ Tech Stack
+### Features
+- **Dark Mode** - Theme toggle with localStorage persistence
+- **Responsive Design** - Mobile-first approach with breakpoints
+- **Smooth Animations** - Typing effects, fade-ins, and hover transitions
+- **Interactive Components** - Expandable sections, modals, and filters
 
-* **React** – Component-based UI development
-* **Vite** – Lightning-fast build tool
-* **TailwindCSS** – Utility-first CSS for styling
-* **Lucide Icons** – Clean and beautiful icon pack
-* **Radix UI** – Accessible component primitives
-* **TypeScript (optional)** – Type safety and tooling
-* **GitHub & Vercel** – Deployment
+### Deployment
+- **GitHub** - Version control and repository hosting
+- **Vercel/Netlify** - Static site hosting (recommended)
 
----
-
-## ⚡️ Features
-
-* 🌑 **Light/Dark Mode Toggle**
-  Save theme preference in local storage with beautiful transitions
-
-* 💫 **Animated Backgrounds**
-  Stars, meteors, scroll effects, and glowing UI elements
-
-* 📱 **Responsive Navigation**
-  Desktop and mobile menus with glassmorphism
-
-* 👨‍💻 **Hero & About Sections**
-  Showcase who you are with smooth intro animations and buttons
-
-* 📊 **Skills Grid**
-  Filterable progress bars and categories with animated width
-
-* 🖼️ **Projects Showcase**
-  Display screenshots, tech stacks, and GitHub/demo links
-
-* 📩 **Contact Section**
-  Social icons + responsive contact form with toast notifications
-
-* 🚀 **One-Click Deployment**
-  Easily host your site with Vercel and GitHub
-
----
-
-## 👌 Quick Start
+## 🚀 Getting Started
 
 ### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
 
-* [Node.js](https://nodejs.org/)
-* [Git](https://git-scm.com/)
-
-### Clone and Run
+### Installation
 
 ```bash
-git clone https://github.com/yourusername/react-tailwind-portfolio.git
-cd react-tailwind-portfolio
+# Clone the repository
+git clone https://github.com/kartikeya01/portfolio-website-kartikeya.git
+
+# Navigate to the project directory
+cd portfolio-website-kartikeya
+
+# Install dependencies
 npm install
+
+# Start the development server
 npm run dev
 ```
 
-Your app will be available at: [http://localhost:5173](http://localhost:5173)
+The application will be available at `http://localhost:5173`
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The production build will be in the `dist` directory.
+
+## 📦 Project Structure
+
+```
+portfolio-website/
+├── public/
+│   ├── companies/      # Company logos
+│   ├── education/      # Education institution logos
+│   └── profile/         # Profile pictures
+├── src/
+│   ├── components/     # React components
+│   │   ├── AboutSection.jsx
+│   │   ├── ContactSection.jsx
+│   │   ├── EducationSection.jsx
+│   │   ├── ExperienceSection.jsx
+│   │   ├── Footer.jsx
+│   │   ├── HeroSection.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── PublicationsSection.jsx
+│   │   ├── SkillsSection.jsx
+│   │   └── ThemeToggle.jsx
+│   ├── pages/          # Page components
+│   └── index.css       # Global styles and theme
+└── package.json
+```
+
+## 🎨 Features
+
+- ✨ **Modern UI/UX** - Clean, professional design with smooth animations
+- 🌓 **Dark Mode** - Toggle between light and dark themes
+- 📱 **Fully Responsive** - Works perfectly on all screen sizes
+- ⚡ **Fast Performance** - Optimized with Vite for lightning-fast load times
+- 🎯 **Interactive Elements** - Hover effects, transitions, and animations
+- 🔍 **Filterable Skills** - Categorized tech stack with filtering
+- 📄 **Expandable Content** - Detailed descriptions for publications and projects
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 👤 Author
+
+**Kartikeya Ranjan**
+- Portfolio: [Live Site](https://your-portfolio-url.com)
+- LinkedIn: [kartikeya-ranjan-845693201](https://www.linkedin.com/in/kartikeya-ranjan-845693201/)
+- GitHub: [@kartikeya01](https://github.com/kartikeya01)
+- Email: kartikeyaranjan02@gmail.com
 
 ---
 
-## 🖼️ Screenshots
-
-> 📸 Add screenshots of your Hero section, Projects grid, and Contact form here to show off your site.
-
----
-
-## ☁️ Deployment
-
-### Deploy on Vercel
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your repository
-4. Click **Deploy**
-
-Your live website will be hosted on a custom subdomain (e.g. `https://your-name.vercel.app`)
-
----
-
-## 🔗 Useful Links
-
-* [React Documentation](https://reactjs.org/)
-* [Tailwind CSS Docs](https://tailwindcss.com/)
-* [Lucide Icons](https://lucide.dev/)
-* [Radix UI](https://www.radix-ui.com/)
-* [Vite](https://vitejs.dev/)
-* [Vercel](https://vercel.com/)
-
----
-
-Let me know if you'd like me to generate a version with your actual GitHub repo, YouTube URL, or a banner image suggestion!
+Built with ❤️ using React and Tailwind CSS
