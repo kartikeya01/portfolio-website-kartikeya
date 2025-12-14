@@ -2,9 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/profile/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kartikeya's Portfolio</title>
+    <script>
+      // Set dark mode immediately to prevent flash of light mode
+      (function() {
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme !== "light") {
+          document.documentElement.classList.add("dark");
+          if (!storedTheme) {
+            localStorage.setItem("theme", "dark");
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
