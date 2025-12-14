@@ -5,7 +5,10 @@ import './index.css'
 
 // Set dark mode as default on initial load to prevent flash of light mode
 const storedTheme = localStorage.getItem("theme");
-if (storedTheme !== "light") {
+if (storedTheme === "light") {
+  document.documentElement.classList.remove("dark");
+} else {
+  // Default to dark mode
   document.documentElement.classList.add("dark");
   if (!storedTheme) {
     localStorage.setItem("theme", "dark");
