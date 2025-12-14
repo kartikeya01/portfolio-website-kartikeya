@@ -109,7 +109,7 @@ export const HeroSection = () => {
                 View my Work Experience
               </a>
               <a
-                href="https://drive.google.com/file/d/150ktmraj7xpIcM5G8CpHJvDv0V6pzswB/view?usp=drive_link"
+                href="/Resume/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cosmic-button flex items-center gap-2"
