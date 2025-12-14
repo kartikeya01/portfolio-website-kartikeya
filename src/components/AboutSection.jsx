@@ -12,32 +12,32 @@ export const AboutSection = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             <div className="bg-card p-6 md:p-8 rounded-lg shadow-lg border border-border/50 space-y-6">
-              <h3 className="text-2xl font-semibold text-left">
+              <h3 className="text-xl sm:text-2xl font-semibold text-left break-words">
                 Passionate Full-Stack Developer & Problem Solver
               </h3>
 
-              <p className="text-muted-foreground text-left">
+              <p className="text-muted-foreground text-left break-words">
                 I'm a full-stack developer focused on building scalable systems
                 and intuitive user experiences. My work spans both frontend and
                 backend engineering, with a strong emphasis on performance,
                 clean architecture, and reliability.
               </p>
 
-              <p className="text-muted-foreground text-left">
+              <p className="text-muted-foreground text-left break-words">
                 At NPCI, I contribute to mission-critical UPI payment
                 platforms—modernizing legacy applications, optimizing backend
                 workflows, and engineering fast, responsive interfaces using
                 React, Spring Boot, and distributed databases.
               </p>
 
-              <p className="text-muted-foreground text-left">
+              <p className="text-muted-foreground text-left break-words">
                 I enjoy breaking down complex problems into clean, efficient
                 solutions and constantly exploring new technologies. My
                 interests extend across system design, Web3 development, and
                 high-performance applications.
               </p>
 
-              <p className="text-muted-foreground text-left">
+              <p className="text-muted-foreground text-left break-words">
                 Outside of work, I build side projects, write technical
                 articles, and stay active in competitive programming—continually
                 pushing myself to grow as an engineer and expand my
@@ -75,7 +75,7 @@ export const AboutSection = () => {
                       <h4 className="font-semibold text-lg text-primary">
                         Web Development
                       </h4>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground break-words">
                         Building high-performance, modern web applications using
                         React, Next.js, Spring Boot, and scalable backend
                         architectures.
@@ -92,7 +92,7 @@ export const AboutSection = () => {
                       <h4 className="font-semibold text-lg text-primary">
                         Distributed & Backend Systems
                       </h4>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground break-words">
                         Designing reliable APIs, optimizing complex workflows,
                         and working with databases like Cassandra, Postgres,
                         Redis, and MongoDB. I currently work on UPI payment
@@ -111,7 +111,7 @@ export const AboutSection = () => {
                       <h4 className="font-semibold text-lg text-primary">
                         Blockchain & Web3
                       </h4>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground break-words">
                         Building Web3 applications on Ethereum using Solidity
                         and Chainlink integrations. I also authored an
                         IEEE-published paper introducing a Bidirectional
@@ -130,7 +130,7 @@ export const AboutSection = () => {
                       <h4 className="font-semibold text-lg text-primary">
                         Project Ownership
                       </h4>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground break-words">
                         Leading end-to-end development—from design to
                         deployment—while collaborating across agile teams and
                         delivering robust, production-ready systems.

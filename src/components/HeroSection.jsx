@@ -87,7 +87,7 @@ export const HeroSection = () => {
         <div className="flex flex-col items-start">
           {/* Left side - Content */}
           <div className="flex-1 text-left space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight break-words">
               <TypingEffect
                 fullText="Hi there! I am Kartikeya Ranjan"
                 speed={50}
@@ -95,7 +95,7 @@ export const HeroSection = () => {
               />
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground opacity-0 animate-fade-in-delay-3 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground opacity-0 animate-fade-in-delay-3 leading-relaxed break-words">
               Full-stack developer working as a Senior Associate Developer at
               National Payments Corporation of India (NPCI), building scalable
               and secure payment systems. I specialize in React, Spring Boot,

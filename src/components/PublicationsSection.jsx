@@ -38,7 +38,7 @@ export const PublicationsSection = () => {
             <span className="text-primary">Publications</span>
           </h2>
 
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto break-words px-4">
             From research papers to technical write-ups, this section highlights my learning journey and the topics I'm passionate about.
           </p>
 
@@ -61,7 +61,7 @@ export const PublicationsSection = () => {
                         rel="noopener noreferrer"
                         className="block"
                       >
-                        <h3 className="text-xl md:text-2xl font-bold mb-3 text-left group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 text-left group-hover:text-primary transition-colors duration-300 break-words">
                           {publication.title}
                         </h3>
                       </a>
@@ -71,7 +71,7 @@ export const PublicationsSection = () => {
                         <div className="flex items-start gap-2">
                           <BookOpen className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                           <div className="flex-1 text-left">
-                            <p className="text-sm font-medium text-foreground text-left">
+                            <p className="text-sm font-medium text-foreground text-left break-words">
                               {publication.venue}
                             </p>
                           </div>
@@ -103,7 +103,7 @@ export const PublicationsSection = () => {
                       {/* Summary */}
                       {publication.summary && (
                         <div className="mb-4">
-                          <p className="text-sm text-muted-foreground text-left leading-relaxed">
+                          <p className="text-sm text-muted-foreground text-left leading-relaxed break-words">
                             {publication.summary}
                           </p>
                         </div>
@@ -127,7 +127,7 @@ export const PublicationsSection = () => {
                       {/* Expanded Content */}
                       {publication.fullDescription && expandedIndex === index && (
                         <div className="mt-4 pt-4 border-t border-border/50">
-                          <p className="text-sm text-muted-foreground text-left leading-relaxed whitespace-pre-line">
+                          <p className="text-sm text-muted-foreground text-left leading-relaxed whitespace-pre-line break-words">
                             {publication.fullDescription}
                           </p>
                         </div>

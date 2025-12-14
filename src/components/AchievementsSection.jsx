@@ -48,7 +48,7 @@ export const AchievementsSection = () => {
             Coding <span className="text-primary">Achievements</span>
           </h2>
 
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto break-words px-4">
             My competitive programming journey across various platforms, showcasing
             problem-solving skills and algorithmic expertise.
           </p>

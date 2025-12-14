@@ -147,12 +147,12 @@ export const ExperienceSection = () => {
                     <div className="flex items-start gap-4 mb-4">
                       <CompanyLogo logo={exp.logo} company={exp.company} fillCircle={exp.fillCircle} />
                       <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-bold mb-1 text-left">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 text-left break-words">
                           {exp.title}
                         </h3>
                         <div className="flex items-center gap-2 text-primary font-semibold mb-1 text-left">
                           <Briefcase className="h-4 w-4 flex-shrink-0" />
-                          <span className="text-left whitespace-nowrap">{exp.company}</span>
+                          <span className="text-left break-words">{exp.company}</span>
                         </div>
                         {exp.team && (
                           <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1 text-left">
@@ -177,7 +177,7 @@ export const ExperienceSection = () => {
                           <div className="mt-1.5 flex-shrink-0">
                             <TrendingUp className="h-4 w-4 text-primary" />
                           </div>
-                          <p className="text-muted-foreground text-sm leading-relaxed">
+                          <p className="text-muted-foreground text-sm leading-relaxed break-words">
                             {achievement}
                           </p>
                         </div>
