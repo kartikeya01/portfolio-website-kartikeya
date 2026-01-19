@@ -43,7 +43,7 @@ export const Navbar = () => {
         >
           <span className="relative z-10">
             <span className="text-glow text-foreground"> Kartikeya </span>{" "}
-            Portfolio
+            Ranjan
           </span>
         </a>
 
@@ -73,7 +73,7 @@ export const Navbar = () => {
 
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 bg-background backdrop-blur-md z-40 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
@@ -85,7 +85,7 @@ export const Navbar = () => {
               <a
                 key={key}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}

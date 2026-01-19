@@ -8,8 +8,12 @@
     <script>
       // Set dark mode immediately to prevent flash of light mode
       (function() {
+        // Always default to dark mode unless explicitly set to light
         const storedTheme = localStorage.getItem("theme");
-        if (storedTheme !== "light") {
+        if (storedTheme === "light") {
+          document.documentElement.classList.remove("dark");
+        } else {
+          // Default to dark mode
           document.documentElement.classList.add("dark");
           if (!storedTheme) {
             localStorage.setItem("theme", "dark");

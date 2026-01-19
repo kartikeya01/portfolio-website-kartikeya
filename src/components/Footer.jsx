@@ -97,7 +97,7 @@ export const Footer = () => {
             {/* Buttons */}
             <div className="flex items-center gap-4 pt-2">
               <a
-                href="https://drive.google.com/file/d/150ktmraj7xpIcM5G8CpHJvDv0V6pzswB/view?usp=drive_link"
+                href="/Resume/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/50 flex items-center gap-2"

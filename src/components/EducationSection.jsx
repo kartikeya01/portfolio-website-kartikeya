@@ -119,7 +119,7 @@ export const EducationSection = () => {
                         <div className="flex items-start gap-4 mb-4">
                           <InstitutionLogo logo={edu.logo} institution={edu.institution} fillCircle={edu.fillCircle} smaller={edu.smaller} removeWhiteBg={edu.removeWhiteBg} themeAware={edu.themeAware} />
                           <div className="flex-1">
-                            <h3 className="text-xl md:text-2xl font-bold mb-1 text-left">
+                            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 text-left break-words">
                               {edu.institution}
                             </h3>
                             {edu.board && (

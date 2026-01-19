@@ -48,7 +48,7 @@ export const ContactSection = () => {
             Get In <span className="text-primary"> Touch</span>
           </h2>
 
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto break-words px-4">
             Let's connect! Reach out through any of these platforms.
             <br />
             Email: kartikeyaranjan02@gmail.com
